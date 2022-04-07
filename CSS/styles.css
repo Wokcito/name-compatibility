@@ -104,15 +104,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     width: 100%;
     text-align: center; }
     .section .resultado-texto {
-      width: 80%;
-      margin: 0 0 30px 0;
+      width: 100%;
+      margin: 0 0 5px;
       text-transform: uppercase;
       font-family: "Oswald", sans-serif;
       color: #fd5170;
       font-size: 80px; }
+    .section .resultado-nombres {
+      margin: 0 0 30px;
+      text-transform: uppercase;
+      font-family: "Oswald", sans-serif;
+      color: #fd5170;
+      font-size: 20px; }
   .section #calcular-nombres {
     display: flex;
     flex-direction: column;
@@ -143,7 +150,7 @@ body {
       width: 80%;
       max-width: 300px; }
     .section #calcular-nombres .sombraError {
-      box-shadow: 0 0 10px 0px #ff4d6e88; }
+      box-shadow: 0 0 10px 0px #fd40639f; }
     .section #calcular-nombres .botones {
       display: flex;
       justify-content: center;

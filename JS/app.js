@@ -5,6 +5,7 @@ const campoNombre1 = document.querySelector('#nombre1');
 const campoNombre2 = document.querySelector('#nombre2');
 const formCalcularNombres = document.querySelector('#calcular-nombres');
 const resultadoTexto = document.querySelector('.resultado-texto');
+const resultadoNombre = document.querySelector('.resultado-nombres');
 
 let contadorLetra = 0;
 let numeroLetras = [];
@@ -186,6 +187,7 @@ function resetearForm(e) {
 
 function mostrarResultado(compatibilidad) {
     resultadoTexto.textContent = `${compatibilidad}%`;
+    resultadoNombre.textContent = `${campoNombre1.value} + ${campoNombre2.value}`;
 }
 
 function contarLetras(letraABC, nombres) {
