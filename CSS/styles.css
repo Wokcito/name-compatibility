@@ -48,7 +48,7 @@ body {
       font-size: 15px;
       color: #FF4D6D; }
 
-@media all and (min-width: 400px) {
+@media all and (min-width: 350px) {
   .footer__nav-version {
     font-size: 14px; }
   .footer__nav-titulo {
