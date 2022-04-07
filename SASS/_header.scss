@@ -25,12 +25,6 @@
                 text-decoration: none;
                 color: $color1;
 
-                a {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-
                 i {
                     font-size: 18px;
                 }
@@ -54,4 +48,21 @@
     }
 
 
+}
+
+@media all and (min-width: 350px) {
+    .header {
+        &__nav {
+            &-iconos {
+                a {
+                    i {
+                        font-size: 23px;
+                    }
+                }
+            }
+            &-titulo {
+                font-size: 25px;
+            }
+        }
+    }
 }

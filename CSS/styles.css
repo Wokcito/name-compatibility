@@ -76,10 +76,6 @@ body {
         align-items: center;
         text-decoration: none;
         color: #FFF0F3; }
-        .header__nav-iconos a a {
-          display: flex;
-          justify-content: center;
-          align-items: center; }
         .header__nav-iconos a i {
           font-size: 18px; }
     .header__nav-titulo {
@@ -94,6 +90,11 @@ body {
       margin: 0;
       padding: 0; }
 
+@media all and (min-width: 350px) {
+  .header__nav-iconos a i {
+    font-size: 23px; }
+  .header__nav-titulo {
+    font-size: 25px; } }
 .section {
   display: flex;
   flex-direction: column;
@@ -167,7 +168,7 @@ body {
         width: 80%;
         height: 40px;
         margin-left: 5px;
-        font-size: 19px;
+        font-size: 17px;
         color: #f7f7f7;
         font-family: "Oswald", sans-serif;
         border-style: none;
@@ -175,5 +176,9 @@ body {
         border-radius: 3px; }
       .section #calcular-nombres .botones .desabilitado {
         opacity: 60%; }
+
+@media all and (min-width: 350px) {
+  .section #calcular-nombres .botones #calcularBtn {
+    font-size: 20px; } }
 
 /*# sourceMappingURL=styles.css.map */

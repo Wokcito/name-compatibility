@@ -107,7 +107,7 @@
                 
                 margin-left: 5px;
                 
-                font-size: 19px;
+                font-size: 17px;
                 color: $color0;
                 font-family: $fuente2;
 
@@ -121,6 +121,18 @@
             }
 
 
+        }
+    }
+}
+
+@media all and (min-width: 350px) {
+    .section {
+        #calcular-nombres {
+            .botones {
+                #calcularBtn {
+                    font-size: 20px;
+                }
+            }
         }
     }
 }
