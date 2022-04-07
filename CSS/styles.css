@@ -86,6 +86,7 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
+      letter-spacing: 0.5px;
       font-family: "Oswald", sans-serif;
       font-size: 20px;
       text-transform: uppercase;
@@ -97,12 +98,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; }
-  .section #enviar-nombres {
+  .section #calcular-nombres {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%; }
-    .section #enviar-nombres h2 {
+    .section #calcular-nombres h2 {
       margin: 10px 0;
       padding: 0;
       border-bottom: 1px solid #fcd7de;
@@ -110,19 +112,52 @@ body {
       font-size: 20px;
       text-transform: uppercase;
       font-family: "Outfit", sans-serif; }
-    .section #enviar-nombres input {
+    .section #calcular-nombres input {
       margin-top: 10px;
       padding: 8px 7px;
       font-family: "Outfit", sans-serif;
       font-size: 18px;
       color: #FF4D6D;
       border-style: none;
-      border-bottom: 1px solid #FF758F;
+      border-bottom: 2px solid #FF758F;
       border-radius: 5px;
       box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.165);
       outline: 0px;
       height: 30px;
       width: 80%;
       max-width: 300px; }
+    .section #calcular-nombres .campoVacio {
+      box-shadow: 0 0 10px 0px #ff4d6e88; }
+    .section #calcular-nombres .botones {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 15px;
+      width: 80%;
+      max-width: 300px; }
+      .section #calcular-nombres .botones #resetearBtn {
+        background-color: #FF758F;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+        margin-right: 5px;
+        color: #FFF0F3;
+        border-style: none;
+        box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.165);
+        border-radius: 20px; }
+      .section #calcular-nombres .botones #calcularBtn {
+        background-color: #FF758F;
+        width: 80%;
+        height: 40px;
+        margin-left: 5px;
+        color: #f7f7f7;
+        font-family: "Oswald", sans-serif;
+        border-style: none;
+        box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.165);
+        border-radius: 3px; }
+      .section #calcular-nombres .botones .desabilitado {
+        opacity: 60%; }
 
 /*# sourceMappingURL=styles.css.map */

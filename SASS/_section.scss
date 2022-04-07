@@ -2,20 +2,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    #enviar-nombres {
+    
+    #calcular-nombres {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
 
         width: 100%;
 
         h2 {
             margin: 10px 0;
             padding: 0;
-
+            
             border-bottom: 1px solid $color2;
-
+            
             color: $color3;
             font-size: 20px;
             text-transform: uppercase;
@@ -31,14 +32,70 @@
             color: $color4;
 
             border-style: none;
-            border-bottom: 1px solid $color3;
+            border-bottom: 2px solid $color3;
             border-radius: 5px;
             box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.165);
             outline: 0px;
-
+            
             height: 30px;
             width: 80%;
             max-width: 300px;
+        }
+        .campoVacio {
+            box-shadow: 0 0 10px 0px #ff4d6e88;
+        }
+        
+        .botones {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-top: 15px;
+
+            width: 80%;
+            max-width: 300px;
+
+            
+            #resetearBtn {
+                background-color: $color3;
+                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                height: 40px;
+                width: 40px;
+
+                margin-right: 5px;
+                
+                color: $color1;
+                
+                border-style: none;
+                box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.165);
+                border-radius: 20px;
+            }
+            
+            #calcularBtn {
+                background-color: $color3;
+                
+                width: 80%;
+                height: 40px;
+                
+                margin-left: 5px;
+                
+                color: $color0;
+                font-family: $fuente2;
+
+                border-style: none;
+                box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.165);
+                border-radius: 3px;
+            }
+
+            .desabilitado {
+                opacity: 60%;
+            }
+
+
         }
     }
 }
