@@ -10,7 +10,7 @@ const resultadoNombre = document.querySelector('.resultado-nombres');
 let contadorLetra = 0;
 let numeroLetras = [];
 let letrasFiltradas = [];
-let caracteresNoPermitidos = [' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+let caracteresNoPermitidos = [' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '*', '.', ',', ';','"',"'",'@','#','$','_','-','&','(',')','/','!','?','¿','¡',':','+'];
 let contadorCaracter = 0;
 
 let nombre1 = '';
