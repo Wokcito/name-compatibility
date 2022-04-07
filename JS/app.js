@@ -74,39 +74,45 @@ function validarCampo(e) {
 
 function calcularNombres(e) {
     e.preventDefault()
+        let numerosResultado1;
+        let numerosResultado2;
 
         nombre1 = (campoNombre1.value).toLowerCase();
         nombre2 = (campoNombre2.value).toLowerCase();
 
         nombresArray1 = (nombre1 + nombre2).split('');
-        // nombresArray2 = (nombre2 + nombre1).split('');
-
-        console.log(nombresArray1);
-        // console.log(nombresArray2);
-
-        // nombresArray2.forEach(letraABC => {
-
-        //     console.log('entró al array 2')
-        //     contarLetras(letraABC, nombresArray2);
-        // });
-        // numerosResultado1 = numeroLetras;
+        nombresArray2 = (nombre2 + nombre1).split('');
 
         nombresArray1.forEach(letraABC => {
-            console.log('entró al array 1')
             contarLetras(letraABC, nombresArray1);
         });
 
-        numerosResultado2 = numeroLetras;
-
-        // HACER ESTA FUNCIÓN DEL ORTOOOO
-
-        while(numeroLetras > 2) {
-            calcularComp(numeroLetras);
-            return numeroLetras;
+        while(numeroLetras.length > 2) {
+            numeroLetras = calcularComp(numeroLetras);
         }
 
-        // console.log(numerosResultado1);
-        console.log(numeroLetras);
+        numerosResultado1 = numeroLetras;
+
+        numeroLetras = [];
+        letrasFiltradas = [];
+
+        nombresArray2.forEach(letraABC => {
+            contarLetras(letraABC, nombresArray2);
+        });
+
+        while(numeroLetras.length > 2) {
+            numeroLetras = calcularComp(numeroLetras);
+        }
+
+        numerosResultado2 = numeroLetras;
+        console.log(numerosResultado1);
+        console.log(numerosResultado2);
+
+        if (numerosResultado1 > numerosResultado2) {
+            mostrarResultado(numerosResultado1)
+        } else {
+            mostrarResultado(numerosResultado2)
+        }
 
         letrasFiltradas = [];
         numeroLetras = [];
@@ -117,6 +123,10 @@ function resetearForm(e) {
     formCalcularNombres.reset();
 
     iniciarApp();
+}
+
+function mostrarResultado(compatibilidad) {
+    
 }
 
 function contarLetras(letraABC, nombres) {
@@ -140,8 +150,6 @@ function contarLetras(letraABC, nombres) {
     if (numeroLetras[numeroLetras.length - 1] === 0) {
         numeroLetras.pop();
     }
-
-    console.log(numeroLetras);
 
     contadorLetra = 0;
 };
@@ -168,10 +176,26 @@ function calcularComp(numeroLetras) {
 
     let porcentajeComp = [];
 
-    for (let i = 0; i < (Math.ceil(numeroLetras.length/2)); i++) {
+    for (let i = 0; i < (Math.floor(numeroLetras.length/2)); i++) {
         let subResultado = parseInt(numeroLetras[i]) + parseInt(numeroLetras[numeroLetras.length - i - 1]);
 
-        porcentajeComp = [...porcentajeComp, subResultado];
+        subResultado = subResultado.toString();
+
+        if (subResultado.length > 1) {
+            subResultado = subResultado.split('')
+        }
+
+        if (subResultado.length > 1) {
+            porcentajeComp = [...porcentajeComp, parseInt(subResultado[0]), parseInt(subResultado[1])];
+
+        } else {
+            porcentajeComp = [...porcentajeComp, parseInt(subResultado)];
+        }
+    }
+
+    if (numeroLetras.length % 2 === 0) {
+    } else {
+        porcentajeComp = [...porcentajeComp, numeroLetras[Math.ceil(numeroLetras.length/2) - 1]];
     }
 
     return porcentajeComp;
