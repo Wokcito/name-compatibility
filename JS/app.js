@@ -182,6 +182,14 @@ function calcularNombres(e) {
 function resetearForm(e) {
     formCalcularNombres.reset();
 
+    if(campoNombre1.classList.contains('sombraError')){
+        campoNombre1.classList.remove('sombraError');
+    }
+
+    if(campoNombre2.classList.contains('sombraError')){
+        campoNombre2.classList.remove('sombraError');
+    }
+
     iniciarApp();
 }
 
