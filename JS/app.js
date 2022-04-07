@@ -4,10 +4,13 @@ const btnResetear = document.querySelector('#resetearBtn');
 const campoNombre1 = document.querySelector('#nombre1');
 const campoNombre2 = document.querySelector('#nombre2');
 const formCalcularNombres = document.querySelector('#calcular-nombres');
+const resultadoTexto = document.querySelector('.resultado-texto');
 
 let contadorLetra = 0;
 let numeroLetras = [];
 let letrasFiltradas = [];
+let caracteresNoPermitidos = [' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+let contadorCaracter = 0;
 
 let nombre1 = '';
 let nombre2 = '';
@@ -21,8 +24,8 @@ function eventListeners() {
     document.addEventListener('DOMContentLoaded',iniciarApp)
 
     // Validar campos
-    campoNombre1.addEventListener('blur',validarCampo);
-    campoNombre2.addEventListener('blur',validarCampo);
+    campoNombre1.addEventListener('input',validarCampo);
+    campoNombre2.addEventListener('input',validarCampo);
 
     // Resetear contenido
     btnResetear.addEventListener('click', resetearForm);
@@ -42,12 +45,6 @@ function iniciarApp() {
 }
 
 function validarCampo(e) {
-
-    if (e.target.value.length > 0) {
-        e.target.classList.remove('campoVacio');
-    } else {
-        e.target.classList.add('campoVacio');
-    }
 
     if (campoNombre1.value != '' && campoNombre2.value != '') {
         btnCalcular.disabled = false;
@@ -70,6 +67,64 @@ function validarCampo(e) {
             btnResetear.classList.add('desabilitado');
         }
     }
+
+    arrayResultado1 = campoNombre1.value.split('');
+
+    arrayResultado1.forEach( letra => {
+        caracteresNoPermitidos.forEach( caracter => {
+            if (letra === caracter) {
+                contadorCaracter++;
+            }
+        })
+    })
+
+    if (contadorCaracter > 0) {
+        if(btnCalcular.classList.contains('desabilitado')){
+        } else {
+            btnCalcular.disabled = true;
+            btnCalcular.classList.add('desabilitado');
+        }
+
+        if(campoNombre1.classList.contains('sombraError')){
+        } else {
+            campoNombre1.classList.add('sombraError');
+        }
+    } else {
+        if(campoNombre1.classList.contains('sombraError')){
+            campoNombre1.classList.remove('sombraError');
+        }
+    }
+
+    contadorCaracter = 0;
+
+    arrayResultado2 = campoNombre2.value.split('');
+
+    arrayResultado2.forEach( letra => {
+        caracteresNoPermitidos.forEach( caracter => {
+            if (letra === caracter) {
+                contadorCaracter++;
+            }
+        })
+    })
+
+    if (contadorCaracter > 0) {
+        if(btnCalcular.classList.contains('desabilitado')){
+        } else {
+            btnCalcular.disabled = true;
+            btnCalcular.classList.add('desabilitado');
+        }
+
+        if(campoNombre2.classList.contains('sombraError')){
+        } else {
+            campoNombre2.classList.add('sombraError');
+        }
+    } else {
+        if(campoNombre2.classList.contains('sombraError')){
+            campoNombre2.classList.remove('sombraError');
+        }
+    }
+
+    contadorCaracter = 0;
 }
 
 function calcularNombres(e) {
@@ -77,8 +132,11 @@ function calcularNombres(e) {
         let numerosResultado1;
         let numerosResultado2;
 
-        nombre1 = (campoNombre1.value).toLowerCase();
-        nombre2 = (campoNombre2.value).toLowerCase();
+        nombre1 = (campoNombre1.value).toLowerCase().trim();
+        nombre2 = (campoNombre2.value).toLowerCase().trim();
+
+        console.log(nombre1);
+        console.log(nombre2);
 
         nombresArray1 = (nombre1 + nombre2).split('');
         nombresArray2 = (nombre2 + nombre1).split('');
@@ -91,7 +149,7 @@ function calcularNombres(e) {
             numeroLetras = calcularComp(numeroLetras);
         }
 
-        numerosResultado1 = numeroLetras;
+        numerosResultado1 = parseInt(`${numeroLetras[0]}${numeroLetras[1]}`);
 
         numeroLetras = [];
         letrasFiltradas = [];
@@ -104,11 +162,12 @@ function calcularNombres(e) {
             numeroLetras = calcularComp(numeroLetras);
         }
 
-        numerosResultado2 = numeroLetras;
+        numerosResultado2 = parseInt(`${numeroLetras[0]}${numeroLetras[1]}`);
+
         console.log(numerosResultado1);
         console.log(numerosResultado2);
 
-        if (numerosResultado1 > numerosResultado2) {
+        if (numerosResultado1 > numerosResultado2 || numerosResultado1 === numerosResultado2) {
             mostrarResultado(numerosResultado1)
         } else {
             mostrarResultado(numerosResultado2)
@@ -126,7 +185,7 @@ function resetearForm(e) {
 }
 
 function mostrarResultado(compatibilidad) {
-    
+    resultadoTexto.textContent = `${compatibilidad}%`;
 }
 
 function contarLetras(letraABC, nombres) {
