@@ -7,15 +7,12 @@ const formCalcularNombres = document.querySelector('#calcular-nombres');
 const resultadoTexto = document.querySelector('.resultado-texto');
 const resultadoNombre = document.querySelector('.resultado-nombres');
 
-let contadorLetra = 0;
-let numeroLetras = [];
-let letrasFiltradas = [];
-let caracteresNoPermitidos = [' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '*', '.', ',', ';','"',"'",'@','#','$','_','-','&','(',')','/','!','?','¿','¡',':','+'];
-let contadorCaracter = 0;
+let letrasFiltradas = [' '];
+let caracteresNoPermitidos = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '*', '.', ',', ';','"',"'",'@','#','$','_','-','&','(',')','/','!','?','¿','¡',':','+'];
 
 let nombre1 = '';
 let nombre2 = '';
-
+let numeroLetras = [];
 let nombres = [];
 
 // Eventos
@@ -46,6 +43,7 @@ function iniciarApp() {
 }
 
 function validarCampo(e) {
+    let contadorCaracter = 0;
 
     if (campoNombre1.value != '' && campoNombre2.value != '') {
         btnCalcular.disabled = false;
@@ -199,6 +197,7 @@ function mostrarResultado(compatibilidad) {
 }
 
 function contarLetras(letraABC, nombres) {
+    let contadorLetra = 0;
 
     nombres.forEach(letraNombre => {
         if (letraNombre === letraABC) {
